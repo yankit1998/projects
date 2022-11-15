@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <style media="screen">
+    .center {
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body class="p-3 mb-2 bg-success p-2 text-dark bg-opacity-25 text-black">
+
+
+<div class="col-10 center">
+<div class="">
+    <td colspan=""><h3>Om Sai Book Depo</h3></td>
+    <td colspan=""><h5>Book Details :</h5></td>
+
+      <td> <a href="/book/add"> <span class="bi bi-person-plus btn btn-warning"> Add Book</span> </a></td>
+      <td> <a href="/"><span class="bi bi-toggle2-on btn btn-primary"> Active Books</span></a></td>
+      <td> <a href="/book/refresh/"><button type="button" class="btn btn-primary">Refresh</button>
+      </a></td>
+
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Filter
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/book/ltoh">Price Low To High</a></li>
+          <li><a class="dropdown-item" href="/book/htol">Price High To Low</a></li>
+          <li><a class="dropdown-item" href="/book/asc"> A -> Z</a></li>
+          <li><a class="dropdown-item" href="/book/dsc"> Z->A</a></li>
+
+        </ul>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Book-Category
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/book/nfiction">Non-Fiction</a></li>
+          <li><a class="dropdown-item" href="/book/edited">Edited</a></li>
+          <li><a class="dropdown-item" href="/book/fiction">Fiction</a></li>
+          <li><a class="dropdown-item" href="/book/reference">Reference</a></li>
+        </ul>
+      </div>
+
+
+<br> <br>
+  </tr>
+</div>
+
+
+  <table class="table table table-secondary table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Book Name</th>
+        <th scope="col">Author Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Book Type</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+
+      </tr>
+    </thead>
+    {% for d in data %}
+    <tr>
+      <td scope="col">{{d.id}}</td>
+      <td scope="col">{{d.Book_Name}}</td>
+      <td scope="col">{{d.Author_Name}}</td>
+      <td scope="col">{{d.Price}}</td>
+      <td scope="col">{{d.Book_Type}}</td>
+      <td scope="col" ><a class="btn btn-warning" href="/book/update/{{d.id}}"><i class="bi bi-pencil-fill"></i></a> </td>
+      <td scope="col" ><a class="btn btn-danger" href="/book/delete/{{d.id}}"><i class="bi bi-trash3"></i></a> </td>
+
+    </tr>
+    {% endfor %}
+  </table>
+
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
